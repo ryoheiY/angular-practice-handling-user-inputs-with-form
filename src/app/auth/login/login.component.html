@@ -4,14 +4,21 @@
   <div class="control-row">
     <div class="control no-margin">
       <label for="email">Email</label>
-      <input id="email" type="email" name="email" ngModel />
+      <input #email="ngModel" email id="email" name="email" ngModel required type="email"/>
     </div>
 
     <div class="control no-margin">
       <label for="password">Password</label>
-      <input id="password" type="password" name="password" ngModel/>
+      <input #password="ngModel" id="password" maxlength="12" minlength="6" name="password" ngModel required
+             type="password"/>
     </div>
 
     <button class="button">Login</button>
   </div>
+  @if (!email.untouched && !password.untouched && form.form.invalid) {
+    <p class="control-error">
+      Invalid Value!
+    </p>
+  }
+
 </form>
