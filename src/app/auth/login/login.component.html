@@ -15,9 +15,14 @@
 
     <button class="button">Login</button>
   </div>
-  @if (!email.untouched && !password.untouched && form.form.invalid) {
+  @if (!email.untouched && email.dirty && email.invalid) {
     <p class="control-error">
-      Invalid Value!
+      Invalid Value Email!
+    </p>
+  }
+  @if (!password.untouched && password.dirty && password.invalid) {
+    <p class="control-error">
+      Invalid Value password!
     </p>
   }
 
